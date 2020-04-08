@@ -1,5 +1,5 @@
 <template>
-    <h1>Carte des fournisseurs</h1>
+    <h2>Carte des fournisseurs</h2>
 </template>
 
 <script>
@@ -8,4 +8,9 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+h2 {
+    margin: auto;
+    margin-top: 1em;
+}
+</style>
