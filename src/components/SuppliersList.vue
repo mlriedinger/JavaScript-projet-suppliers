@@ -1,8 +1,13 @@
 <template>
     <div class="container">
         <h2>Liste des fournisseurs</h2>
-        <div class="list"></div>
-        <Supplier :name="name" :status="status" :checkedAt="checkedAt" />
+        <Supplier
+            :key="supplier.id"
+            v-for="supplier in suppliers"
+            :name="supplier.name"
+            :status="supplier.status"
+            :checkedAt="supplier.checkedAt"
+        />
     </div>
 </template>
 
@@ -16,9 +21,38 @@ export default {
     },
     data: () => {
         return {
-            name: 'George de la Jungle',
-            status: true,
-            checkedAt: new Date().toLocaleString('fr-FR'),
+            suppliers: [
+                {
+                    id: 1,
+                    name: 'George de la Jungle',
+                    status: true,
+                    checkedAt: new Date().toLocaleString('fr-FR'),
+                },
+                {
+                    id: 2,
+                    name: 'Toutânkhamon',
+                    status: false,
+                    checkedAt: new Date().toLocaleString('fr-FR'),
+                },
+                {
+                    id: 3,
+                    name: 'Simba',
+                    status: true,
+                    checkedAt: new Date().toLocaleString('fr-FR'),
+                },
+                {
+                    id: 4,
+                    name: "Bob l'éponge",
+                    status: true,
+                    checkedAt: new Date().toLocaleString('fr-FR'),
+                },
+                {
+                    id: 5,
+                    name: 'Dark Vador',
+                    status: false,
+                    checkedAt: new Date().toLocaleString('fr-FR'),
+                },
+            ],
         };
     },
 };

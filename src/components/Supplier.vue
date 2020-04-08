@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <h3>Fournisseur : {{ name }}</h3>
+        <h3>{{ name }}</h3>
         <h5 v-if="status" style="color:#339966">En stock</h5>
         <h5 v-else style="color:red">Rupture de stock</h5>
         <h6>Stock relevé le : {{ checkedAt }}</h6>
