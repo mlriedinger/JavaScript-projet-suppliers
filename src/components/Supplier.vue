@@ -10,12 +10,10 @@
 <script>
 export default {
     name: 'Supplier',
-    data: () => {
-        return {
-            name: 'George de la Jungle',
-            status: false, // est ce qu'il y a du stock
-            checkedAt: new Date().toLocaleString('fr-FR'), // date de la dernière mise à jour du stock
-        };
+    props: {
+        name: String,
+        status: Boolean,
+        checkedAt: Date,
     },
 };
 </script>
