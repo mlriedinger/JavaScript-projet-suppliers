@@ -58,9 +58,9 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 h3 {
     margin: auto;
-    margin-top: 1em;
+    margin-top: 2em;
 }
 </style>
