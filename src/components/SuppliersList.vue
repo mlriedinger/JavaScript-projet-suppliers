@@ -2,8 +2,8 @@
     <div class="container">
         <h3>Liste des fournisseurs</h3>
         <Supplier
-            :key="supplier.id"
             v-for="supplier in suppliers"
+            :key="supplier.id"
             :name="supplier.name"
             :status="supplier.status"
             :checkedAt="supplier.checkedAt"
