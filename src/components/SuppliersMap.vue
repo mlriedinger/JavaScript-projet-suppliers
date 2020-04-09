@@ -11,6 +11,7 @@
                 @update:bounds="boundsUpdated"
             >
                 <l-tile-layer :url="url"></l-tile-layer>
+                <l-marker :lat-lng="markerLatLng"></l-marker>
             </l-map>
         </div>
     </div>
@@ -19,14 +20,14 @@
 <script>
 // import L from 'leaflet';
 // import { latLng } from 'leaflet';
-import { LMap, LTileLayer } from 'vue2-leaflet';
+import { LMap, LTileLayer, LMarker } from 'vue2-leaflet';
 
 export default {
     name: 'SuppliersMap',
     components: {
         LMap,
         LTileLayer,
-        // LMarker,
+        LMarker,
     },
     data() {
         return {
@@ -34,6 +35,7 @@ export default {
             zoom: 2,
             center: [47.41322, -1.219482],
             bounds: null,
+            markerLatLng: [47.31322, -1.319482],
         };
     },
     methods: {
