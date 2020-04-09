@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <h2>Liste des fournisseurs</h2>
+        <h3>Liste des fournisseurs</h3>
         <Supplier
             :key="supplier.id"
             v-for="supplier in suppliers"
@@ -59,7 +59,7 @@ export default {
 </script>
 
 <style>
-h2 {
+h3 {
     margin: auto;
     margin-top: 1em;
 }
