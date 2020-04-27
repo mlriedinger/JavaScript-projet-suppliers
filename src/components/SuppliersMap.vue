@@ -1,6 +1,8 @@
 <template>
     <div class="container">
         <h3>Carte des fournisseurs</h3>
+        <div v-if="error!=null">{{ error }}</div>
+        <div v-if="loading">Requête en cours ...</div>
         <div style="height: 420px;">
             <l-map
                 style="height: 100%; width: 100%"
