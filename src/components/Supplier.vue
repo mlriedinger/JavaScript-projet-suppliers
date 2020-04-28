@@ -13,7 +13,7 @@ export default {
     props: {
         name: String,
         status: Boolean,
-        checkedAt: Date,
+        checkedAt: String,
     },
 };
 </script>
