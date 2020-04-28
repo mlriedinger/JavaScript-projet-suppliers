@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <h3>Carte des fournisseurs</h3>
-        <div v-if="error!=null">{{ error }}</div>
+        <div v-if="error != null">{{ error }}</div>
         <div v-if="loading">Requête en cours ...</div>
         <div style="height: 420px;">
             <l-map
@@ -17,15 +17,20 @@
                     v-for="supplier in suppliers"
                     :key="supplier.id"
                     :lat-lng="[supplier.latitude, supplier.longitude]"
-                ></l-marker>
+                >
+                    <l-popup>
+                        <p>{{ supplier.name }}</p>
+                    </l-popup>
+                </l-marker>
             </l-map>
         </div>
     </div>
 </template>
 
 <script>
-import { LMap, LTileLayer, LMarker } from 'vue2-leaflet';
-const axios = require('axios').default;
+import { LMap, LTileLayer, LMarker, LPopup } from 'vue2-leaflet';
+import { latLng } from 'leaflet';
+import { mapState } from 'vuex';
 
 export default {
     name: 'SuppliersMap',
@@ -33,28 +38,17 @@ export default {
         LMap,
         LTileLayer,
         LMarker,
+        LPopup,
     },
     data() {
         return {
             url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
             zoom: 2,
-            center: [47.41322, -1.219482],
+            center: latLng(47.41322, -1.219482),
             bounds: null,
-            suppliers: [],
         };
     },
-    created: function loadSuppliers() {
-        this.loading = true;
-        axios
-            .get('https://api-suppliers.herokuapp.com/api/suppliers')
-            .then(loadedValue => {
-                this.suppliers = loadedValue.data;
-                this.loading = false;
-            })
-            .catch(rejectReason => {
-                this.error = rejectReason;
-            });
-    },
+    computed: mapState(['suppliers', 'loading', 'error']),
     methods: {
         zoomUpdated(zoom) {
             this.zoom = zoom;

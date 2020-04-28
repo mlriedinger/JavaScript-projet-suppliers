@@ -8,7 +8,6 @@
                     type="button"
                     value="Consulter la liste des fournisseurs"
                     class="btn btn-dark col"
-                    @click="onSuppliersListClick"
                 />
             </router-link>
 
@@ -17,7 +16,6 @@
                     type="button"
                     value="Voir la carte"
                     class="btn btn-dark col"
-                    @click="onMapClick"
                 />
             </router-link>
             <router-view></router-view>
@@ -26,21 +24,10 @@
 </template>
 
 <script>
-// import SuppliersList from './components/SuppliersList.vue';
-// import SuppliersMap from './components/SuppliersMap.vue';
 export default {
     name: 'App',
-    components: {
-        // SuppliersList,
-        // SuppliersMap,
-    },
-    methods: {
-        onSuppliersListClick() {
-            // alert('Tu as cliqué sur la liste de fournisseurs !');
-        },
-        onMapClick() {
-            // alert('Tu as cliqué sur la map !');
-        },
+    created: function() {
+        this.$store.dispatch('getSuppliers');
     },
 };
 </script>
