@@ -23,23 +23,26 @@ const store = new Vuex.Store({
     actions: {
         getSuppliers({ commit }) {
             axios
-                .get('https://api-suppliers.herokuapp.com/api/suppliers')
+                .get('https://api-suppliers.herokuapp.com/api/suppliers') // Appel à l'API, qui renvoit une promise
                 .then(loadedValue => {
-                    commit('SET_SUPPLIERS', loadedValue.data);
+                    // Si la promise est resolved
+                    commit('SET_SUPPLIERS', loadedValue.data); // Appel au mutateur qui modifie l'état de "suppliers" avec les données de l'API en paramètre
                 })
                 .catch(rejectReason => {
-                    commit('SET_ERROR', rejectReason);
+                    // Si la promise est rejected
+                    commit('SET_ERROR', rejectReason); // Appel au mutateur qui gère l'état de "error" avec la valeur de rejet
                 });
         },
     },
     mutations: {
+        // Permettent de modifier l'état de "suppliers", "loading" et "error"
         SET_SUPPLIERS(state, suppliers) {
-            state.suppliers = suppliers;
-            state.loading = false;
+            state.suppliers = suppliers; // Modifie l'état de "suppliers" avec les données de l'API
+            state.loading = false; // Modifie l'état de "loading" à false puisque le chargement des données est terminé
         },
         SET_ERROR(state, error) {
-            state.loading = false;
-            state.error = error;
+            state.loading = false; // Idem au dessus
+            state.error = error; // Modifie l'état de "error" si l'appel à l'API n'a pas fonctionné
         },
     },
 });

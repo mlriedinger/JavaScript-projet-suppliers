@@ -4,10 +4,16 @@
         <div v-if="error != null">{{ error }}</div>
         <div v-if="loading">Requête en cours ...</div>
         <div class="text-dark text-justify" style="margin-top:2em;">
-            Voici une liste de fournisseurs .. plutôt douteux. Tout ce que vous pourrez lire par la suite pourrait endommager gravement votre santé mais aussi celle de vos proches (évidemment).
+            <p class="lead">
+                Voici une liste de fournisseurs .. plutôt douteux. Tout ce que vous
+                pourrez lire par la suite pourrait endommager gravement votre santé
+                mais aussi celle de vos proches (évidemment).
+            </p>
         </div>
         <div class="text-dark text-justify" style="margin-top:2em;">
-            Vous êtes toujours là ? <br/>Ye be warned .. Mouahaha (rire du Dr. Denfer)
+            Vous êtes toujours là ?
+            <br />Ye be warned .. Mouahaha (rire du Dr.
+            Denfer)
         </div>
         <Supplier
             v-for="supplier in suppliers"
@@ -20,6 +26,8 @@
 </template>
 
 <script>
+// On appelle le composant Supplier pour pouvoir y injecter les données récupérées de l'API qui sont dans mapState
+
 import Supplier from './Supplier.vue';
 import { mapState } from 'vuex';
 
@@ -28,7 +36,7 @@ export default {
     components: {
         Supplier,
     },
-    computed: mapState(['suppliers', 'loading', 'error']),
+    computed: mapState(['suppliers', 'loading', 'error']), // déclenche l'affichage des données du store
 };
 </script>
 

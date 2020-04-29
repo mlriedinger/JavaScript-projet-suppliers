@@ -7,16 +7,12 @@
                 <input
                     type="button"
                     value="Consulter la liste des fournisseurs"
-                    class="btn btn-dark col"
+                    class="btn btn-dark col btn-lg"
                 />
             </router-link>
 
             <router-link to="/map" class="col">
-                <input
-                    type="button"
-                    value="Voir la carte"
-                    class="btn btn-dark col"
-                />
+                <input type="button" value="Voir la carte" class="btn btn-dark col btn-lg" />
             </router-link>
             <router-view></router-view>
         </nav>
@@ -27,7 +23,7 @@
 export default {
     name: 'App',
     created: function() {
-        this.$store.dispatch('getSuppliers');
+        this.$store.dispatch('getSuppliers'); // On fait un appel unique à l'API via le store, qui va alimenter les composants SuppliersMap et SuppliersList
     },
 };
 </script>
@@ -41,8 +37,10 @@ export default {
     color: #2c3e50;
     margin-top: 60px;
 }
-
+h1 {
+    margin-top: 1.5em;
+}
 .row {
-    margin-top: 2em;
+    margin-top: 5em;
 }
 </style>

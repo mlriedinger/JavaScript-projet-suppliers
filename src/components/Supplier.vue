@@ -8,6 +8,8 @@
 </template>
 
 <script>
+// On crée un composant Supplier qu'on va pouvoir appeler autant de fois que nécessaire dans SuppliersList
+
 export default {
     name: 'Supplier',
     props: {
